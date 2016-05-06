@@ -1,6 +1,8 @@
 <?php
 namespace frontend\controllers;
 
+use League\Flysystem\Adapter\Local;
+use League\Flysystem\Filesystem;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -72,6 +74,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $adapter = new Local(__DIR__.'/path/to/root');
+        $filesystem = new Filesystem($adapter);exit;
+
         return $this->render('index');
     }
 
